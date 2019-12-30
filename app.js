@@ -66,12 +66,12 @@ app.use(accountRoutes);
 app.use(movieRoutes);
 
 
-// app.use('/500', errorController.get500Page);
-// app.use(errorController.get404Page);
-// app.use((error, req, res, next) => {
+app.use('/500', errorController.get500Page);
+app.use(errorController.get404Page);
+app.use((error, req, res, next) => {
 
-//     res.status(500).render('error/500', { title: 'Error' });
-// });
+    res.status(500).render('error/500', { title: 'Error' });
+});
 mongoose.connect(ConnectionString,{useNewUrlParser:true,useUnifiedTopology:true})
     .then(() => {
         console.log('connected to mongodb');
