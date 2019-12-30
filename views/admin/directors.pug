@@ -1,0 +1,33 @@
+extends ../layouts/main-layout.pug
+block content
+    if (action !=='undefined' && action === 'add')
+        div.alert.alert-success The Director has been added.
+    if (action !=='undefined' && action === 'edit')
+        div.alert.alert-success The Director has been updated.
+    if (action !=='undefined' && action === 'delete')
+        div.alert.alert-danger The Director has been deleted.
+    .row
+    if directors.length > 0
+        table.table.table-bordered   
+            thead
+                tr
+                    th Image
+                    th Name
+                    th Country
+                    th Year
+                    th 
+            tbody
+                each director in directors
+                    tr
+                        td.text-center
+                            img(src=`/img/${director.imageURL}` width='100').img-fluid
+                        td #{director.name.name}
+                        td #{director.name.country}
+                        td #{director.name.yearOfBirth}
+                        td 
+                            a.btn.btn-primary.btn-sm(href=`/admin/edit-director/${director.id}`) Edit
+                            form(action='/admin/delete-director' method="POST")
+                                input(type='hidden' name='id' value=`${director.id}`)
+                                button(type="submit").btn.btn-warning.btn-sm Delete
+    else
+        h1 No Directors

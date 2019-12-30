@@ -1,0 +1,41 @@
+extends ../layouts/main-layout.pug
+
+block content
+    form(action="/admin/add-movie" method="POST" enctype="multipart/form-data")
+                    .form-group.row
+                        label(for="name").col-sm-2.col-form-label Name
+                        .col-sm-10
+                            input(type="text"  name="name").form-control#name
+                    .form-group.row
+                        label(for="imdb_score").col-sm-2.col-form-label Imdb Score
+                        .col-sm-10
+                            input(type="text"  name="imdb_score").form-control#imdb_score
+                    .form-group.row
+                        label(for="imageURL").col-sm-2.col-form-label ImageURL
+                        .col-sm-10
+                            input(type="file"  name="image").form-control-file#imageURL
+                    .form-group.row
+                        label(for="embedURL").col-sm-2.col-form-label EmbedURL
+                        .col-sm-10
+                            input(type="text"  name="embedURL").form-control#embedURL
+                    .form-group.row
+                        label(for="categoryId").col-sm-2.col-form-label Category
+                        .col-sm-10
+                            select(name="categoryId").form-control#categoryId
+                                option(value="-1") Select Category
+                                each category in categories
+                                    option(value=`${category.id}`) #{category.name.name}
+                    .form-group.row
+                        label(for="directorId").col-sm-2.col-form-label Director
+                        .col-sm-10
+                            select(name="directorId").form-control#directorId
+                                option(value="-1") Select Director
+                                each director in directors
+                                    option(value=`${director.id}`) #{director.name.name}
+                    .form-group.row
+                        label(for="description").col-sm-2.col-form-label Description
+                        .col-sm-10
+                            textarea(type="text"  name="description").form-control#description
+                    .form-group.row
+                        .col-sm-10.offset-sm-2
+                            input(type="submit"  value="Save Movie").btn.btn-primary

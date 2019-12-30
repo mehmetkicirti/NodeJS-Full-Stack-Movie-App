@@ -1,0 +1,27 @@
+extends ../layouts/main-layout.pug
+
+block content
+    form(action="/admin/add-director" method="POST" enctype="multipart/form-data")
+                    .form-group.row
+                        label(for="name").col-sm-2.col-form-label Name
+                        .col-sm-10
+                            input(type="text"  name="name").form-control#name
+                    .form-group.row
+                        label(for="country").col-sm-2.col-form-label Country
+                        .col-sm-10
+                            input(type="text"  name="country").form-control#country
+                    .form-group.row
+                        label(for="imageURL").col-sm-2.col-form-label ImageURL
+                        .col-sm-10
+                            input(type="file"  name="image").form-control-file#imageURL
+                    .form-group.row
+                        label(for="yearOfBirth").col-sm-2.col-form-label yearOfBirth
+                        .col-sm-10
+                            input(type="number"  name="yearOfBirth").form-control#yearOfBirth
+                    .form-group.row
+                        label(for="bio").col-sm-2.col-form-label Bio
+                        .col-sm-10
+                            textarea(type="text"  name="bio").form-control#bio
+                    .form-group.row
+                        .col-sm-10.offset-sm-2
+                            input(type="submit"  value="Save Movie").btn.btn-primary
