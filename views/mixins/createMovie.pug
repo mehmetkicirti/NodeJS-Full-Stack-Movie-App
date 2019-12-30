@@ -1,0 +1,16 @@
+mixin createMovie(movie)
+    .col-md-4
+        .card.mt-1(style="height:15rem;width:15rem")
+            img(src=`/img/${movie.imageURL}` style="heigth=15rem;width:15rem" alt=`${movie.name.description.length>20?movie.name.description.substr(0,20):movie.name.description}`).card-img-top
+            .card-body
+                h4.card-title
+                    a(href=`/movies/${movie.id}`) #{movie.name.name}
+                .text-muted
+                    i.fas.fa-star #{movie.name.imdb_score}            
+                p.lead #{movie.name.description.length>20?movie.name.description.substr(0,20)+"...":movie.name.description}
+
+                            
+            .card-footer.text-center                
+                a(href=`/movies/${movie.id}`).btn.btn-outline-primary.btn-sm Details 
+                
+                     

@@ -1,0 +1,10 @@
+mixin createDirector(director)
+    .col-md-4
+        .card.my-3(style="width:15rem;")
+            img(src=`/img/${director.imageURL}` style="width:15rem;height:15rem").card-img-top
+            .card-body
+                h4.card-title.text-center
+                    a(href=`/directors/${director.id}`) #{director.name.name}
+                    p.lead #{director.name.bio.length>50 ? director.name.bio.substr(0,50) + "..." : director.name.bio}
+            .card-footer.text-center                
+                a(href=`/directors/${director.id}`).btn.btn-outline-primary.btn-block Details 
