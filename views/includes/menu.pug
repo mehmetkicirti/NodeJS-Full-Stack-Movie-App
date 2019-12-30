@@ -1,0 +1,8 @@
+.list-group
+    h3.ml-3.text-center.text-secondary Categories
+    hr(style="width:20%;border:solid grey 1px;color:#333")
+    if categories.length > 0
+        each category in categories
+            a(href=`/categories/${category.id}` class=category.id===selected?"list-group-item active":"list-group-item") #{category.name.name}
+            //categories/1
+            

@@ -1,0 +1,33 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+        .container
+            a(href="/").navbar-brand BomMovieApp
+            ul.navbar-nav.mr-auto
+                li.nav-item
+                    a(href="/" class=(path==='/'?'nav-link active':'nav-link')) Home
+                li.nav-item
+                    a(href="/movies" class=(path==='/movies'?'nav-link active':'nav-link')) Movies
+                if isAuthenticated
+                    li.nav-item
+                        a(href="/directors" class=(path==='/directors'?'nav-link active':'nav-link')) Directors
+                if isAdmin
+                    li.nav-item.dropdown
+                        button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false").btn.btn-outline-danger.dropdown-toggle#navbarDropdown Actions
+                        .dropdown-menu(aria-labelledby="navbarDropdown")
+                            a(href="/admin/add-movie" class=(path==='/admin/add-movie'?'dropdown-item active':'dropdown-item')) Add Movie
+                            a(href="/admin/add-category" class=(path==='/admin/add-category'?'dropdown-item active':'dropdown-item')) Add Category
+                            a(href="/admin/add-director" class=(path==='/admin/add-director'?'dropdown-item active':'dropdown-item')) Add Director
+                    li.nav-item.dropdown
+                        button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false").btn.btn-outline-danger.dropdown-toggle#navbarDropdown1 Admin
+                        .dropdown-menu(aria-labelledby="navbarDropdown1")
+                            a(href="/admin/movies" class=(path==='/admin/movies'?'dropdown-item active':'dropdown-item')) Movies
+                            a(href="/admin/categories" class=(path==='/admin/categories'?'dropdown-item active':'dropdown-item')) Categories
+                            a(href="/admin/directors" class=(path==='/admin/directors'?'dropdown-item active':'dropdown-item')) Directors
+            ul.navbar-nav.ml-auto
+                if isAuthenticated
+                    li.nav-item
+                        a.nav-link(href="/logout") Logout
+                else
+                    li.nav-item
+                        a.nav-link(href="/login") Login
+                    li.nav-item
+                        a.nav-link(href="/register") Register
