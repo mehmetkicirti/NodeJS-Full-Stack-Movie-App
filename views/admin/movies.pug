@@ -1,0 +1,31 @@
+extends ../layouts/main-layout.pug
+block content
+    if (action !=='undefined' && action === 'add')
+        div.alert.alert-success The Movie has been added.
+    if (action !=='undefined' && action === 'edit')
+        div.alert.alert-success The Movie has been updated.
+    if (action !=='undefined' && action === 'delete')
+        div.alert.alert-danger The Movie has been deleted.
+    .row
+    if movies.length > 0
+        table.table.table-bordered   
+            thead
+                tr
+                    th Image
+                    th Movie Name
+                    th Imdb Score
+                    th 
+            tbody
+                each movie in movies
+                    tr
+                        td
+                            img(src=`/img/${movie.imageURL}` width='80')
+                        td #{movie.name.name}
+                        td #{movie.name.imdb_score} stars
+                        td 
+                            a.btn.btn-primary.btn-sm(href=`/admin/edit-movie/${movie.id}`) Edit
+                            form(action='/admin/delete-movie' method="POST")
+                                input(type='hidden' name='id' value=`${movie.id}`)
+                                button(type="submit").btn.btn-warning.btn-sm Delete
+    else
+        h1 No Movies
