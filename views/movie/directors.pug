@@ -1,0 +1,11 @@
+extends ../layouts/main-layout.pug
+include ../mixins/createDirector.pug
+block content
+    .row
+        .col-md-12
+            .row
+                if directors.length > 0
+                    each director in directors
+                       +createDirector(director)
+                else
+                    h1 No Director Yet

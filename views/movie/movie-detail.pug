@@ -1,0 +1,22 @@
+extends ../layouts/main-layout.pug
+block content
+        
+            
+    .row
+        .col-md-3
+            img(src=`/img/${movie.imageURL}`).img-fluid
+            h3 Imdb Score : #{movie.name.imdb_score}  
+                 i.fas.fa-cog.fa-spin
+        .col-md-9.pl-3
+            h2.mb-3 #{movie.name.name}
+            hr
+            .embed-responsive.embed-responsive-16by9
+                iframe.embed-responsive-item(src=`${movie.name.embedURL}` allowfullscreen)
+            hr
+            div.mb-3
+            h1 Description :
+            br
+            p.lead.ml-5 #{movie.name.description}
+            
+
+            

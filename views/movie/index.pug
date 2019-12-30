@@ -1,0 +1,14 @@
+extends ../layouts/main-layout.pug
+include ../mixins/createMovie.pug
+block content
+        .row
+            .col-md-3
+                include ../includes/menu.pug
+            .col-md-9
+                include ../includes/slider.pug
+                .row
+                    if movies.length > 0
+                        each movie in movies
+                            +createMovie(movie)
+                    else
+                        h1 No Movies Yet

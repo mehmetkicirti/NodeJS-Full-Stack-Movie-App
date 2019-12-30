@@ -1,0 +1,17 @@
+extends ../layouts/main-layout.pug
+block content
+    .row
+        .col-md-3
+            img(src=`/img/${director.imageURL}`).img-fluid
+        .col-md-9.pl-3
+            h2.mb-3 #{director.name.name}
+                hr
+            div.mb-3
+                p Country : #{director.name.country}
+                br
+                p Year : #{director.name.yearOfBirth}
+    .row
+        .col-md-12
+            h1.p-3 Bio :
+            hr
+            p.ml-5 #{director.name.bio}
