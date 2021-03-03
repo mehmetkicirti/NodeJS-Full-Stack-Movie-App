@@ -27,7 +27,7 @@
     "node-localstorage": "^2.1.5",
     "nodemailer": "^6.4.2",
     "nodemon": "^2.0.2",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "store": "^2.0.12",
     "validator": "^12.1.0"
   }
